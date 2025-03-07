@@ -1,0 +1,628 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    /* Cette ligne permet de scroller si le contenu dépasse,
+       mais on va masquer la barre visuelle */
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE, Edge Legacy */
+}
+
+/* Pour Chrome, Safari, Edge Chromium, Opera */
+::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+    background: transparent;
+}
+
+
+
+
+/* RESET DE BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* TYPOGRAPHIE */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f8f8f8;
+    line-height: 1.6;
+}
+
+/* EN-TÊTE */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #004080;
+    /* Couleur principale */
+    padding: 1rem 2rem;
+}
+
+header .logo a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 100px;
+    /* Ajustez selon vos préférences */
+    height: auto;
+    /* Préserve le ratio d’origine */
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+nav li a:hover,
+nav li a.active {
+    background-color: #00224e;
+    border-radius: 4px;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5%;
+    overflow: hidden;
+}
+
+/* L'image de fond floutée */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* L’image par défaut (image10) */
+    background: url("photos/image10.png") center center / cover no-repeat;
+    filter: blur(5px);
+    z-index: 0;
+}
+
+/* Voile foncé si vous le souhaitez (en plus du blur) */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Le texte (hero-content) est au-dessus */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+/* Superposition: .hero-stack */
+.hero-stack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* Derrière le texte */
+}
+
+.hero-stack img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s;
+
+    /* Ajoutez un flou léger, par ex. 2px */
+    filter: blur(4px);
+}
+
+/* Les images "active" apparaissent (opacity: 1), s'empilant au fil du temps */
+.hero-stack img.active {
+    opacity: 1;
+    z-index: 1;
+    /* Les images actives sont au-dessus, 
+                   la plus récente active passera par-dessus les autres */
+}
+
+/* Le texte au-dessus */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-bottom: 1rem;
+    /* Crée un espace sous le texte */
+}
+
+.btn {
+    background-color: #00aaff;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    margin-top: 5rem;
+
+}
+
+.btn:hover {
+    background-color: #008fcc;
+}
+
+.hero-content p {
+    margin-bottom: 1.5rem;
+    /* crée un espace sous le texte */
+}
+
+.hero-content .btn {
+    margin-top: 0.5rem;
+    /* espace supplémentaire au-dessus du bouton */
+}
+
+
+/* SECTIONS GÉNÉRALES */
+.page-header {
+    position: relative;
+    /* Nécessaire pour la superposition */
+    overflow: hidden;
+    /* Évite que le flou déborde */
+    min-height: 400px;
+    /* Une hauteur minimale pour bien voir le flou */
+    color: #fff;
+    /* Couleur du texte (si l’image est sombre) */
+}
+
+/* On utilise ::before pour l'image de fond floutée */
+.page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* L’image de fond */
+    background: linear-gradient(rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)),
+        url('photos/image1.png') center center no-repeat;
+    background-size: cover;
+
+    /* Le filtre de flou */
+    filter: blur(5px);
+    /* Ajustez l’intensité : plus ou moins de px */
+
+    /* Si vous voulez un léger voile en plus, ajoutez 
+       background-color: rgba(0,0,0,0.3);  ou un gradient, etc. */
+    z-index: 0;
+    /* Derrière le contenu */
+}
+
+/* On place le texte au-dessus */
+.page-header {
+    /* ... vos autres propriétés ... */
+    text-align: center;
+}
+
+.page-header h1,
+.page-header p {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    /* Plus besoin de text-align ici, puisque c'est hérité */
+}
+
+
+
+
+
+.page-header h1 {
+    margin-bottom: 0.5rem;
+}
+
+/* SERVICES SECTION */
+.services-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Conteneur d'image, style "card" similaire à Réalisations */
+.service-card .image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    /* Ajustez selon la hauteur désirée */
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.service-card .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Recadre l’image pour remplir la zone de 250px */
+    opacity: 0;
+    /* Par défaut, invisible */
+    transition: opacity 0.5s;
+    z-index: 0;
+}
+
+/* La classe active rend l’image visible (mais on n’a qu’une image) */
+.service-card .image-container img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.service-card h2 {
+    margin-top: 0.5rem;
+}
+
+
+/* GALLERY SECTION (Réalisations) */
+.gallery-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.project-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+   *** Ajout pour l'affichage de plusieurs images superposées dans chaque projet ***
+   .image-container gère la position (relative).
+   Les images se superposent (position: absolute), 
+   la première est "active" et visible, les autres sont cachées (opacity:0).
+*/
+.project-card .image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    /* Ajustez la hauteur de vos images */
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.project-card .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    /* Par défaut, invisible */
+    transition: opacity 0.5s;
+    /* Effet de fondu */
+    z-index: 0;
+}
+
+.project-card .image-container img.active {
+    opacity: 1;
+    /* L'image active est visible */
+    z-index: 1;
+}
+
+.project-card h2 {
+    margin-top: 0.5rem;
+}
+
+/* PARTNER SECTION */
+.partner-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.partner-card {
+    background-color: #fff;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.partner-card img {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+/* CONTACT */
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    /* en cas de petit écran */
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Liste stylisée pour les coordonnées */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.contact-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Icônes font-awesome */
+.contact-list li i {
+    margin-right: 0.5rem;
+    /* espace entre l’icône et le texte */
+    color: #004080;
+    /* exemple de couleur */
+}
+
+/* Mettez la map à côté */
+.map-container {
+    flex: 1 1 400px;
+    width: 200px;
+    /* Largeur minimale pour la carte */
+    margin-left: 720px;
+    border-radius: 100px;
+}
+
+.contact-info {
+    flex: 1 1 300px;
+    max-width: 500px;
+    /* Optionnel, si vous voulez limiter la zone de texte */
+}
+
+
+/* PIED DE PAGE */
+footer {
+    background-color: #004080;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 0;
+    /* Plus de marge haute */
+}
+
+
+
+
+.content-section h2 {
+    font-size: 2rem;
+    /* plus grand que le texte normal */
+    color: #004080;
+    /* même couleur que l’en-tête, pour la cohérence */
+    margin-bottom: 1rem;
+    /* espace sous le titre */
+    font-weight: 700;
+    /* plus gras */
+    text-transform: uppercase;
+    /* par exemple, pour un style plus “corporate” */
+    letter-spacing: 1px;
+    /* léger espacement des lettres */
+    border-left: 4px solid #004080;
+    /* Barre décorative à gauche */
+    padding-left: 0.75rem;
+    /* Espace entre la barre et le texte */
+}
+
+
+
+.content-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    /* rend la lecture plus aérée */
+    text-align: justify;
+    /* optionnel : justifie le texte pour un rendu “pro” */
+}
+
+/* Listes “Nos valeurs” */
+.content-section ul {
+    list-style: none;
+    /* supprime la puce par défaut */
+    padding-left: 0;
+    /* retire l’indentation */
+    margin-top: 1rem;
+    /* petit espace avant la liste */
+}
+
+.content-section ul li {
+    position: relative;
+    padding: 0.5rem 0 0.5rem 2.5rem;
+    /* Espace à gauche pour icône */
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    /* Ligne séparatrice (optionnel) */
+}
+
+.content-section ul li strong {
+    color: #004080;
+    /* met en avant le mot fort */
+    font-weight: 600;
+}
+
+/* Exemple : ajouter une icône ou un symbole avant chaque li */
+.content-section ul li::before {
+    content: "✓";
+    /* ou un code unicode \2713, etc. */
+    color: #004080;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+
+/* ===========================
+   RESPONSIVITÉ POUR MOBILE
+   =========================== */
+@media (max-width: 600px) {
+
+    /* En-tête : centrer et empiler logo et navigation */
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    /* Hero : réduire les marges et centrer le texte */
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    /* Réduire la taille des images et ajuster la hauteur des conteneurs */
+    .image-container {
+        height: 200px;
+    }
+
+    /* Pour la section contact, organiser en colonne */
+    .contact-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* La map : occuper toute la largeur */
+    .map-container {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* ===========================
+     RESPONSIVITÉ POUR TABLETTE
+     =========================== */
+@media (min-width: 601px) and (max-width: 1024px) {
+    header {
+        padding: 1rem 1.5rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    .hero {
+        padding: 2rem 1.5rem;
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    /* Ajuster la hauteur des conteneurs d'images pour les services et réalisations */
+    .image-container {
+        height: 220px;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-container {
+        margin: 1rem 0;
+        width: 90%;
+        height: auto;
+    }
+}
+
+/* ===========================
+     RESPONSIVITÉ POUR DESKTOP
+     =========================== */
+@media (min-width: 1025px) {
+    header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    /* Pour la map, définir une taille fixe adaptée aux écrans larges */
+    .map-container {
+        margin-left: 2rem;
+        width: 400px;
+        height: 300px;
+    }
+
+    /* Section contact en ligne : répartition de l'espace */
+    .contact-section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Ajustement éventuel des hauteurs des images */
+    .image-container {
+        height: 250px;
+    }
+}

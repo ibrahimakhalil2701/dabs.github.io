@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="DABS - Nos services" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nos services | DABS</title>
+    <!-- Adaptez ce chemin si votre style.css est dans un autre dossier (ex: assets/style.css) -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="photos\image1.png" alt="DABS Logo" />
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="entreprise.html">L’entreprise</a></li>
+                <li><a href="services.html" class="active">Nos services</a></li>
+                <li><a href="realisations.html">Réalisations</a></li>
+                <li><a href="partenaires.html">Nos partenaires</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Nos services</h1>
+            <p>Découvrez l’ensemble de nos prestations pour vos projets sportifs et de loisirs.</p>
+        </section>
+
+        <!-- On utilise .services-section avec des .service-card, 
+         chaque service ayant UNE image statique -->
+        <section class="services-section">
+
+            <!-- Service 1 -->
+            <article class="service-card">
+                <!-- conteneur image (image-container), 
+             même si c’est juste 1 image, ça garde une cohérence de style -->
+                <div class="image-container">
+                    <img src="photos\stade.png" alt="Construction d’infrastructures clés en main" class="active" />
+                </div>
+                <h2>Construction d’infrastructures clés en main</h2>
+                <p>
+                    Construction d’infrastructures clés en main.
+                    Travaillez avec nous c’est avoir un interlocuteur unique,
+                    pouvant piloter de manière efficace et professionnelle votre futur projet,
+                    dans le respect des délais et des dernières normes internationales.
+                    Ensemble, nous créons un lieu idéal ou un large public pourra profiter d’activités sportives
+                    variées.
+                </p>
+            </article>
+
+            <!-- Service 2 -->
+            <article class="service-card">
+                <div class="image-container">
+                    <img src="photos/turbune.png" alt="Tribunes et gradins" class="active" />
+                </div>
+                <h2>Tribunes et gradins</h2>
+                <p>
+                    Chez DABS, notre équipe vous offre la possibilité de choisir différents types de tribunes
+                    (modulaires,
+                    modulaires industrialisés, tribunes-vestiaires), adaptés à vos besoins.
+                </p>
+            </article>
+
+            <!-- Service 3 -->
+            <article class="service-card">
+                <div class="image-container">
+                    <img src="photos\couverture.png" alt="Terrains multisports et aires de jeux" class="active" />
+                </div>
+                <h2>Couvertes</h2>
+                <p>
+                    Pour répondre à l’ensemble de vos besoins et vous apportez une solution sur mesure,
+                    notre équipe vous propose de meilleurs habillages pour vos terrains multisports,
+                    avec l’usage des toutes dernières technologies.
+                </p>
+            </article>
+
+            <!-- Service 4 -->
+            <article class="service-card">
+                <div class="image-container">
+                    <img src="photos\air.png" alt="Rénovation, réhabilitation et mise aux normes" class="active" />
+                </div>
+                <h2>Rénovation, réhabilitation et mise aux normes des Airs et Fitness</h2>
+                <p>
+                    Notre expertise nous permet de vous accompagner dans la mise en place
+                    d’équipements sportifs au sein des espaces publics et privés.
+                    Nous travaillons avec nos clients tout au long de leur projet
+                    pour créer une salle de musculation intérieure ou extérieure qui s’intègre parfaitement dans son
+                    environnement .
+                </p>
+            </article>
+
+            <!-- Service 5 -->
+            <article class="service-card">
+                <div class="image-container">
+                    <img src="photos\air_jeux.png" alt="Air de jeux" class="active" />
+                </div>
+                <h2>Aires de jeux </h2>
+                <p>
+                    Depuis plus de 10 ans, DABS imagine et conçoit des aires de jeux qui participent
+                    à l’épanouissement et à l’éveil des enfants. A travers de la conception d’équipements
+                    ludiques et esthétiques, nous tenons à cœur d’offrir aux enfants une aire de jeux ou coexistent
+                    plaisir et développement.
+                </p>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 DABS. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Pas de script.js nécessaire 
+       vu qu'on affiche 1 photo statique par service -->
+</body>
+
+</html>
