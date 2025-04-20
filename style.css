@@ -3,7 +3,7 @@
       font-family: 'Montserrat', sans-serif;
       }
       .hero-section {
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0) 100%), url('https://readdy.ai/api/search-image?query=A%20modern%20construction%20site%20with%20workers%20in%20yellow%20hard%20hats%2C%20tall%20cranes%20against%20a%20blue%20sky%2C%20and%20partially%20completed%20modern%20buildings.%20The%20left%20side%20of%20the%20image%20has%20a%20clean%2C%20white%20gradient%20background%20that%20seamlessly%20transitions%20to%20the%20construction%20scene%20on%20the%20right.%20Professional%2C%20high-quality%2C%20realistic%20photograph.&width=1600&height=800&seq=1&orientation=landscape');
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0) 100%), url('photos/logo_stade.png');
       background-size: cover;
       background-position: center right;
       }
