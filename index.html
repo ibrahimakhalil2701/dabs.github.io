@@ -1,60 +1,757 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DABS | Accueil</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="description" content="DABS - Création d’espaces de loisirs extérieurs et intérieurs" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DABS | Accueil</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <!-- Libs & polices -->
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-<body>
-  <!-- En-tête avec le logo et la navigation -->
-  <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="photos\image1.png" alt="DABS Logo" />
-      </a>
+
+
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#2563eb", secondary: "#0f172a" },
+            borderRadius: {
+              none: "0px", sm: "4px", DEFAULT: "8px", md: "12px",
+              lg: "16px", xl: "20px", "2xl": "24px", "3xl": "32px", full: "9999px", button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="bg-white h-full flex flex-col">
+
+    <!-- ====== HEADER avec logo ====== -->
+    <header class="bg-white shadow-md z-50">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="#">
+          <img src="photos/logo.png" alt="Logo DABS" class="h-12 w-auto" />
+        </a>
+
+        <!-- Exemple de menu de navigation -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#services" class="nav-link text-gray-700 font-medium">Services</a>
+          <a href="#projects" class="nav-link text-gray-700 font-medium">Projets</a>
+          <a href="#about"    class="nav-link text-gray-700 font-medium">À propos</a>
+          <a href="#contact"  class="nav-link text-gray-700 font-medium">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="hero-section w-full min-h-[600px] pt-24 flex items-center">
+      <div class="container mx-auto px-4 py-16 w-full">
+        <div class="max-w-xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Créateur d’espaces sportifs et aires de jeux
+          </h1>
+          <p class="text-lg text-gray-700 mb-8">
+            Depuis 2018, DABS conçoit et aménage des espaces de loisirs extérieurs et intérieurs.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#services"
+               class="bg-primary text-white px-6 py-3 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors">
+               Découvrir nos services
+            </a>
+            <a href="#contact"
+               class="bg-white border border-gray-300 text-gray-800 px-6 py-3 !rounded-button text-sm font-medium hover:bg-gray-50 transition-colors">
+               Contactez‑nous
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SERVICES ====== -->
+    <section id="services" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Nos Services</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Découvrez notre gamme complète de services adaptés à tous vos besoins
+            en construction et rénovation.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Service -->
+          <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
+            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-futbol fa-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Construction de stades clés en main</h3>
+            <p class="text-gray-600">
+              Conception, ingénierie et réalisation de stades modernes et polyvalents,
+              conformes aux normes internationales .
+            </p>
+          </div>
+          
+
+          <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
+            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-chair fa-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Tribunes et gradins</h3>
+            <p class="text-gray-600">
+              Conception et installation de tribunes modulaires ou en béton armé,
+              optimisées pour le confort, la sécurité et la visibilité du public,
+              selon les standards internationaux.
+            </p>
+            
+          </div>
+
+          <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
+            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-warehouse fa-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Couvertes et habillages multisports</h3>
+            <p class="text-gray-600">
+              Pour répondre à l’ensemble de vos besoins, notre équipe conçoit des couvertes sur mesure 
+              pour terrains multisports, intégrant les dernières technologies pour un usage optimal toute l’année.
+            </p>            
+          </div>
+          
+
+          <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
+            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-child-reaching fa-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Aires de jeux et espaces fitness</h3>
+            <p class="text-gray-600">
+              Rénovation, réhabilitation et mise aux normes de vos aires de jeux, 
+              zones de loisirs et espaces de fitness extérieurs, dans le respect des normes de sécurité et d’accessibilité.
+            </p>
+          </div>
+          
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Nos Réalisations
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Découvrez quelques-uns de nos projets récents qui témoignent de
+            notre savoir-faire et de notre engagement.
+          </p>
+        </div>
+       
+       
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Project 1 -->
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image2.png"
+                alt="Chez sadio Mané"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span
+                class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full"
+                >Terrain</span
+              >
+              <h3 class="text-xl font-semibold mt-2">
+                Chez l’international Sadio Mané
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Aménagement d’un terrain de football privé : revêtement, gradins modulaires, éclairage et équipements sportifs
+              </p>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image25.png"
+                alt="Stade municipal de Grand Yoff"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span
+                class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full"
+              >
+                Infrastructures sportives
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Stade municipal de Grand Yoff
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Construction d’un stade aux normes internationales, avec tribunes couvertes
+                et revêtement haute performance adapté aux compétitions.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image23.png"
+                alt="Stade municipal de Khombol"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Infrastructures sportives
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Stade municipal de Khombol
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Projet en finition, comprenant pistes d’athlétisme, terrains multisports et équipements modernes adaptés aux jeunes et aux compétitions locales.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Project 4 -->
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image19.png"
+                alt="Stade municipal de Kédougou"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Rénovation
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Stade municipal de Kédougou
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Rénovation et modernisation : terrain synthétique, gradins confortables et éclairage de qualité professionnelle.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Project 5 -->
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image27.png"
+                alt="Terrain Keur Massar"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Multisports
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Terrain Keur Massar
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Terrain multisports de proximité favorisant la pratique du basket, du football 
+                et d'autres activités sportives pour les jeunes du quartier.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Project 6 -->
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image32.png"
+                alt="Complexe sportif de Kolda"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Sportif
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Complexe sportif de Kolda
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Installation complète d’un complexe sportif moderne, adapté à la pratique de plusieurs disciplines telles que le football, le basketball, et bien d’autres.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image8.png"
+                alt="Complexe sportif de Mbour"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Sportif
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Complexe sportif de Mbour
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Conception et réalisation d’un nouveau complexe sportif incluant gradins, tribunes couvertes, et salles de musculation entièrement équipées.
+              </p>
+            </div>
+          </div>
+          
+
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image11.png"
+                alt="Réhabilitation du terrain de Gorée"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Réhabilitation
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Gorée – Projet financé par Augustin Senghor
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Réhabilitation d’un terrain situé en site historique, en tenant compte des contraintes patrimoniales et environnementales de l’île de Gorée.
+              </p>
+            </div>
+          </div>
+          
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/image30.png"
+                alt="Terrain Ousmane Ndoye à Thiès"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Réhabilitation
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Terrain Ousmane Ndoye – Thiès
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Réhabilitation complète d’un terrain de proximité à Thiès, pour favoriser l’accès au sport dans un cadre rénové et sécurisé.
+              </p>
+            </div>
+          </div>
+          
+          
+        </div>
+        
+      </div>
+
+
+<!-- Nos Partenaires -->
+<section id="partenaires" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Nos Partenaires</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Un réseau de partenaires institutionnels et sportifs pour bâtir l’avenir du sport au Sénégal.
+      </p>
     </div>
 
-    <nav>
-      <ul>
-        <li><a href="entreprise.html">L’entreprise</a></li>
-        <li><a href="services.html">Nos services</a></li>
-        <li><a href="realisations.html">Réalisations</a></li>
-        <li><a href="partenaires.html">Nos partenaires</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Diourbel -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/ville_diourbel.png" alt="Mairie de Diourbel" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Mairie de la ville de Diourbel</h3>
+          <p class="text-gray-600 mt-2">Partenaire majeur dans la réalisation d’infrastructures de grande envergure.</p>
+        </div>
+      </div>
 
-  <section class="hero">
-    <!-- Fond flouté dans hero::before (image10 par défaut) -->
+      <!-- Hann Bel-Air -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/commuen_han.png" alt="Commune de Hann Bel-Air" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Hann Bel-Air</h3>
+          <p class="text-gray-600 mt-2">Collaboration pour l’installation d’aires de jeux dans les écoles.</p>
+        </div>
+      </div>
 
-    <!-- Toutes les images superposées, la première est déjà visible -->
-    <div class="hero-stack">
-      <img src="photos/image5.png" alt="Image par défaut" class="active" />
-      <img src="photos/image15.png" alt="Image 2" />
-      <img src="photos/image16.png" alt="Image 3" />
-      <img src="photos/image17.png" alt="Image 4" />
-      <img src="photos/image18.png" alt="Image 5" />
+      <!-- Wakhinan Nimzat -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/commune de wakhinan.png" alt="Commune de Wakhinan Nimzat" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Wakhinan Nimzat</h3>
+          <p class="text-gray-600 mt-2">Partenaire officiel pour la mise en œuvre de projets d'infrastructure.</p>
+        </div>
+      </div>
+
+      <!-- Diambars -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/institut_diambar_saly.png" alt="Institut Diambars Saly" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Institut Diambars – Saly</h3>
+          <p class="text-gray-600 mt-2">Partenaire stratégique dans la réalisation de complexes sportifs haute performance.</p>
+        </div>
+      </div>
+
+      <!-- FSF -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/federation_senegalais_foot.png" alt="Fédération Sénégalaise de Football" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Fédération Sénégalaise de Football</h3>
+          <p class="text-gray-600 mt-2">Collaboration dans la rénovation et la réalisation de terrains sportifs.</p>
+        </div>
+      </div>
+
+      <!-- Grand Yoff -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/grand yoff.png" alt="Commune de Grand Yoff" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Grand Yoff</h3>
+          <p class="text-gray-600 mt-2">Partenaire local dans les projets d’infrastructure sportive et communautaire.</p>
+        </div>
+      </div>
+
+      <!-- Tivaouane Diaksao -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/tivaon diaksao.png" alt="Commune de Tivaouane Diaksao" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Tivaouane Diaksao</h3>
+          <p class="text-gray-600 mt-2">Collaboration pour des installations sportives de proximité.</p>
+        </div>
+      </div>
+
+      <!-- Kaolack -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/kaolack.png" alt="Commune de Kaolack" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Kaolack</h3>
+          <p class="text-gray-600 mt-2">Appui dans les aménagements d’infrastructures sportives régionales.</p>
+        </div>
+      </div>
+
+      <!-- Bargny -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/bargny.png" alt="Commune de Bargny" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Bargny</h3>
+          <p class="text-gray-600 mt-2">Développement d’espaces sportifs communautaires.</p>
+        </div>
+      </div>
+
+      <!-- Diass -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/diass.png" alt="Commune de Diass" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Diass</h3>
+          <p class="text-gray-600 mt-2">Soutien aux infrastructure locales.</p>
+        </div>
+      </div>
+
+      <!-- Génération Foot -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/generation foot.png" alt="Génération Foot" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Génération Foot</h3>
+          <p class="text-gray-600 mt-2">Partenaire clé dans la construction des infrastructures.</p>
+        </div>
+      </div>
+
+      <!-- Podor -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/podor.png" alt="Commune de Podor" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Podor</h3>
+          <p class="text-gray-600 mt-2">Appui aux infrastructures sportives.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    </section>
+    <!-- Advantages Section -->
+    <section id="about" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        
+        
+          
+          
+         
+        <div class="mt-16 bg-white p-8 rounded shadow-sm">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                Notre Engagement
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Depuis notre création, nous nous engageons à offrir des services de construction d’excellence,
+                alliant qualité, respect des délais et maîtrise des budgets. Chaque projet est mené avec rigueur, 
+                passion et un souci constant de satisfaire pleinement nos partenaires et bénéficiaires.
+
+.
+              </p>
+              <p class="text-gray-600 mb-4">
+                Notre équipe d'experts qualifiés travaille en étroite
+                collaboration avec nos clients pour comprendre leurs besoins et
+                réaliser leurs visions.
+              </p>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <i class="ri-check-line ri-lg text-primary mt-1 mr-2"></i>
+                  <span>Développer des infrastructures sportives accessibles et durables</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line ri-lg text-primary mt-1 mr-2"></i>
+                  <span>Respecter les normes techniques, environnementales et sécuritaires</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line ri-lg text-primary mt-1 mr-2"></i>
+                  <span>Promouvoir l’inclusion sociale et la pratique du sport pour tous</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line ri-lg text-primary mt-1 mr-2"></i>
+                  <span>Assurer un accompagnement complet, de la conception à la maintenance</span>
+                </li>
+              </ul>
+              
+            </div>
+            <div class="md:w-1/2">
+              <img
+                src="photos/image15.png"
+                alt="Notre équipe au travail"
+                class="w-full h-auto rounded"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+   <!-- Contact Section -->
+<section id="contact" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Contactez‑nous</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Pour toute question ou demande de partenariat, n’hésitez pas à nous joindre !
+      </p>
     </div>
 
-    <div class="hero-content">
-      <h1>Créateur d’espaces sportifs et aires de jeux</h1>
-      <p>Depuis 2018, DABS conçoit et aménage des espaces de loisirs extérieurs et intérieurs.</p>
-      <a href="services.html" class="btn">Découvrir nos services</a>
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Informations de contact -->
+      <div class="lg:w-1/2 bg-white p-8 rounded shadow-sm">
+        <h3 class="text-xl font-semibold mb-6">Informations de contact</h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+              <i class="ri-map-pin-line ri-lg text-primary"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Adresse</h4>
+              <p class="text-gray-600">
+                8051 Sacré Cœur 2, Immeuble Aicha, 1er étage, en face du BRT
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+              <i class="ri-phone-line ri-lg text-primary"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Téléphone</h4>
+              <p class="text-gray-600">+22177 662 55 45 – +22177 567 00 26 - +221 776315602</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+              <i class="ri-mail-line ri-lg text-primary"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Email</h4>
+              <p class="text-gray-600">contact@dabs-senegal.com</p>
+            </div>
+          </div>
+
+          <!-- NINEA & RC -->
+    <div class="flex items-start">
+      <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+        <i class="ri-file-list-3-line ri-lg text-primary"></i>
+      </div>
+      <div>
+        <h4 class="font-medium">Informations légales</h4>
+        <p class="text-gray-600">
+          NINEA : 008379861 2T2<br />
+          RC : SN DKR 2021 B 5489
+        </p>
+      </div>
     </div>
-  </section>
 
+          <div class="flex items-start">
+            <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+              <i class="ri-time-line ri-lg text-primary"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Horaires d’ouverture</h4>
+              <p class="text-gray-600">Lundi – Vendredi : 8h00 – 18h00</p>
+              <p class="text-gray-600">Samedi : 9h00 – 12h00</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- Pied de page -->
-  <footer>
-    <p>&copy; 2023 DABS. Tous droits réservés.</p>
-  </footer>
+        
+      </div>
 
-  <script src="script.js"></script>
-</body>
+      <!-- Carte -->
+      <div class="lg:w-1/2">
+        <div class="bg-white p-2 rounded shadow-sm h-[300px] overflow-hidden">
+          <!-- Carte Google Maps intégrée -->
+          <iframe
+            class="w-full h-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=14.7188604,-17.4659678&hl=fr&z=15&output=embed">
+          </iframe>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
 
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+    
+          <!-- Logo + présentation -->
+          <div>
+            <a href="#">
+              <img src="photos/logo.png" alt="Logo DABS" class="h-12 w-auto mb-4" />
+            </a>
+            <p class="text-gray-400">
+              Votre partenaire de confiance pour la conception, la construction
+              et la rénovation d’infrastructures sportives de haute qualité.
+            </p>
+          </div>
+    
+          <!-- Liens rapides -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+            <ul class="space-y-2">
+              <li><a href="#"         class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+              <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+              <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projets</a></li>
+              <li><a href="#about"    class="text-gray-400 hover:text-white transition-colors">À propos</a></li>
+              <li><a href="#contact"  class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+    
+          <!-- Nos services -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Nos services</h4>
+            <ul class="space-y-2">
+              <li><span class="text-gray-400">Construction de stades clés en main</span></li>
+              <li><span class="text-gray-400">Tribunes et gradins</span></li>
+              <li><span class="text-gray-400">Aires de jeux & espaces fitness</span></li>
+              <li><span class="text-gray-400">Couvertes & habillages multisports</span></li>
+              <li><span class="text-gray-400">Études & conception</span></li>
+            </ul>
+          </div>
+    
+          <!-- Contact -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contact</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="ri-map-pin-line ri-lg mt-1 mr-3 text-primary"></i>
+                <span class="text-gray-400">
+                  8051 Sacré‑Cœur 2,<br />Immeuble Aïcha – 1<sup>er</sup> étage
+                </span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-phone-line ri-lg mr-3 text-primary"></i>
+                <span class="text-gray-400">+22177 662 55 45 ou au 
+                                            +22177 567 00 26 ou au 
+                                            +221 776315602</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-mail-line ri-lg mr-3 text-primary"></i>
+                <span class="text-gray-400">contact@dabs-senegal.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-file-list-3-line ri-lg mr-3 text-primary"></i>
+                <span class="text-gray-400">
+                  NINEA : 008379861 2T2<br />
+                  RC : SN DKR 2021 B 5489
+                </span>
+              </li>
+            </ul>
+          </div>
+    
+        </div>
+    
+        <!-- Copyright -->
+        <div class="border-t border-gray-800 pt-6 text-center">
+          <p class="text-gray-400 text-sm">
+            &copy; 2025 DABS – Tous droits réservés.
+          </p>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
 </html>

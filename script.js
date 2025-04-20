@@ -1,76 +1,84 @@
-// Exemple de script qui affiche un message dans la console
-console.log("Bienvenue sur le site de DABS !");
-
-// Ajoutez ici vos fonctionnalités JS
-// Par exemple :
-// - Validation du formulaire en front-end
-// - Animation du menu
-// - Slider pour les réalisations
-// etc.
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Récupère toutes les cartes-projets
-    const cards = document.querySelectorAll(".project-card");
-
-    cards.forEach(card => {
-        // Sélection de toutes les images dans .image-container
-        const images = card.querySelectorAll(".image-container img");
-
-        // S’il n’y a qu’une seule image, pas de diaporama
-        if (images.length <= 1) return;
-
-        let currentIndex = 0;    // Index de l'image actuellement visible
-        let intervalId = null;   // Pour stocker le setInterval
-
-        // Au survol : démarrer le diaporama
-        card.addEventListener("mouseenter", () => {
-            // Démarre un interval qui change d'image toutes les 2 secondes, par ex
-            intervalId = setInterval(() => {
-                // On cache l'image courante
-                images[currentIndex].classList.remove("active");
-
-                // On passe à l'image suivante
-                currentIndex = (currentIndex + 1) % images.length;
-
-                // On affiche la nouvelle image
-                images[currentIndex].classList.add("active");
-            }, 2000); // Défilement toutes les 2s (modifiez si besoin)
-        });
-
-        // Quand on quitte la carte : on arrête le diaporama et revient à la 1ère image
-        card.addEventListener("mouseleave", () => {
-            // Stoppe l’interval
-            clearInterval(intervalId);
-            intervalId = null;
-
-            // Réinitialise sur la première image
-            images.forEach(img => img.classList.remove("active"));
-            images[0].classList.add("active");
-            currentIndex = 0;
-        });
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+        const icon = mobileMenuButton.querySelector("i");
+        if (mobileMenu.classList.contains("hidden")) {
+          icon.classList.remove("ri-close-line");
+          icon.classList.add("ri-menu-line");
+        } else {
+          icon.classList.remove("ri-menu-line");
+          icon.classList.add("ri-close-line");
+        }
+      });
+    }
+  
+    // Form validation
+    const contactForm = document.querySelector("form");
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+        if (!name || !email || !message) {
+          alert("Veuillez remplir tous les champs obligatoires.");
+          return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Veuillez entrer une adresse email valide.");
+          return;
+        }
+        alert("Merci pour votre message ! Nous vous contacterons bientôt.");
+        contactForm.reset();
+      });
+    }
+  
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        if (targetId === "#") return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: "smooth",
+          });
+          const mobileMenu = document.getElementById("mobile-menu");
+          if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+            const icon = document.querySelector("#mobile-menu-button i");
+            if (icon) {
+              icon.classList.remove("ri-close-line");
+              icon.classList.add("ri-menu-line");
+            }
+          }
+        }
+      });
     });
-});
+  });
+  
 
 
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-images');
 
-document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".hero-stack img");
-    let currentIndex = 0;
-    const total = images.length;
+    carousels.forEach((carousel) => {
+      const images = carousel.querySelectorAll('.carousel-img');
+      let current = 0;
 
-    // S'assurer que la première image est active
-    // (Ou vous pouvez le faire directement dans le HTML)
-    images[currentIndex].classList.add("active");
-
-    setInterval(() => {
-        // On retire .active de l'image courante
-        images[currentIndex].classList.remove("active");
-
-        // On passe à l'image suivante
-        currentIndex = (currentIndex + 1) % total;
-
-        // On ajoute .active à la nouvelle
-        images[currentIndex].classList.add("active");
-    }, 2000); // toutes les 1 seconde
-});
+      setInterval(() => {
+        images[current].classList.remove('opacity-100');
+        images[current].classList.add('opacity-0');
+        current = (current + 1) % images.length;
+        images[current].classList.remove('opacity-0');
+        images[current].classList.add('opacity-100');
+      }, 4000); // Change toutes les 4 secondes
+    });
+  });
