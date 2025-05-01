@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DABS | Accueil</title>
+    <title>DABS</title>
 
     <!-- Libs & polices -->
     <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
@@ -43,7 +43,7 @@
     <header class="bg-white shadow-md z-50">
       <div class="container mx-auto px-4 py-3 flex items-center justify-between">
         <a href="#">
-          <img src="photos/logo.png" alt="Logo DABS" class="h-12 w-auto" />
+          <img src="photos/imagelogo.png" alt="Logo DABS" class="h-12 w-auto" />
         </a>
 
         <!-- Exemple de menu de navigation -->
@@ -55,6 +55,23 @@
         </nav>
       </div>
     </header>
+
+
+    <style>
+      .hero-section{
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(255,255,255,.9) 20%,
+            rgba(255,255,255,.7) 50%,
+            rgba(255,255,255,.3) 70%,
+            rgba(255,255,255,0) 90%
+          ),
+          url("photos/image11.png");
+        background-size: cover;
+        background-position: center right;
+      }
+    </style>
 
     <!-- ====== HERO SECTION ====== -->
     <section class="hero-section w-full min-h-[600px] pt-24 flex items-center">
@@ -80,69 +97,75 @@
       </div>
     </section>
 
-    <!-- ====== SERVICES ====== -->
-    <section id="services" class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">Nos Services</h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Découvrez notre gamme complète de services adaptés à tous vos besoins
-            en construction et rénovation.
-          </p>
+   <!-- ====== SERVICES ====== -->
+<section id="services" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Nos Services</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Découvrez notre gamme complète de services adaptés à tous vos besoins
+        en construction et rénovation.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Service – Stade -->
+      <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
+        <!-- Cercle image 96 px -->
+        <div class="w-20 h-20 mx-auto rounded-full mb-4 overflow-hidden">
+          <img src="photos/stade.png" alt="Construction de stades" class="w-full h-full object-cover">
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Service -->
-          <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
-            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
-              <i class="fas fa-futbol fa-xl text-primary"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Construction de stades clés en main</h3>
-            <p class="text-gray-600">
-              Conception, ingénierie et réalisation de stades modernes et polyvalents,
-              conformes aux normes internationales .
-            </p>
-          </div>
-          
-
-          <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
-            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
-              <i class="fas fa-chair fa-xl text-primary"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Tribunes et gradins</h3>
-            <p class="text-gray-600">
-              Conception et installation de tribunes modulaires ou en béton armé,
-              optimisées pour le confort, la sécurité et la visibilité du public,
-              selon les standards internationaux.
-            </p>
-            
-          </div>
-
-          <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
-            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
-              <i class="fas fa-warehouse fa-xl text-primary"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Couvertes et habillages multisports</h3>
-            <p class="text-gray-600">
-              Pour répondre à l’ensemble de vos besoins, notre équipe conçoit des couvertes sur mesure 
-              pour terrains multisports, intégrant les dernières technologies pour un usage optimal toute l’année.
-            </p>            
-          </div>
-          
-
-          <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
-            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-4">
-              <i class="fas fa-child-reaching fa-xl text-primary"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Aires de jeux et espaces fitness</h3>
-            <p class="text-gray-600">
-              Rénovation, réhabilitation et mise aux normes de vos aires de jeux, 
-              zones de loisirs et espaces de fitness extérieurs, dans le respect des normes de sécurité et d’accessibilité.
-            </p>
-          </div>
-          
+        <h3 class="text-xl font-semibold mb-3">Construction de stades clés en main</h3>
+        <p class="text-gray-600">
+          Conception, ingénierie et réalisation de stades modernes et polyvalents,
+          conformes aux normes internationales.
+        </p>
       </div>
-    </section>
+
+      <!-- Service – Tribunes -->
+      <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
+        <!-- Même conteneur circulaire 96 px -->
+        <div class="w-20 h-20 mx-auto rounded-full mb-4 overflow-hidden">
+          <img src="photos/tirbune.jpg" alt="Tribunes et gradins" class="w-full h-full object-cover">
+        </div>
+
+        <h3 class="text-xl font-semibold mb-3">Tribunes et gradins</h3>
+        <p class="text-gray-600">
+          Conception et installation de tribunes modulaires ou en béton armé,
+          optimisées pour le confort, la sécurité et la visibilité du public.
+        </p>
+      </div>
+
+      <!-- Service – Couvertes multisports -->
+      <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
+        <div class="w-20 h-20 mx-auto rounded-full mb-4 overflow-hidden">
+          <img src="photos/couvertures.jpg" alt="Couvertes multisports" class="w-full h-full object-cover">
+        </div>
+
+        <h3 class="text-xl font-semibold mb-3">Couvertes et habillages multisports</h3>
+        <p class="text-gray-600">
+          Conception de couvertes sur mesure intégrant les dernières technologies
+          pour un usage optimal toute l’année.
+        </p>
+      </div>
+
+      <!-- Service – Aires de jeux -->
+      <div class="service-card bg-white p-6 rounded shadow-sm hover:shadow-lg transition-all">
+        <div class="w-20 h-20 mx-auto rounded-full mb-4 overflow-hidden">
+          <img src="photos/air de jeux.jpg" alt="Aires de jeux" class="w-full h-full object-cover">
+        </div>
+
+        <h3 class="text-xl font-semibold mb-3">Aires de jeux et espaces fitness</h3>
+        <p class="text-gray-600">
+          Rénovation, réhabilitation et mise aux normes de vos aires de jeux et
+          espaces de fitness extérieurs en toute sécurité.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Projects Section -->
     <section id="projects" class="py-16">
@@ -278,7 +301,7 @@
           <div class="project-card bg-white rounded overflow-hidden shadow-sm">
             <div class="h-64 overflow-hidden">
               <img
-                src="photos/image32.png"
+                src="photos/kolda.jpg"
                 alt="Complexe sportif de Kolda"
                 class="w-full h-full object-cover object-top"
               />
@@ -315,6 +338,45 @@
               <p class="text-gray-600 mt-2">
                 Conception et réalisation d’un nouveau complexe sportif incluant gradins, tribunes couvertes, et salles de musculation entièrement équipées.
               </p>
+            </div>
+          </div>
+          
+
+
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/diambar.jpg"
+                alt="Complexe sportif de Mbour"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Sportif
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                institut Diambar
+              </h3>
+            </div>
+          </div>
+
+
+          <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+            <div class="h-64 overflow-hidden">
+              <img
+                src="photos/dias.jpg"
+                alt="Complexe sportif de Mbour"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <span class="text-xs font-medium text-primary bg-blue-50 px-2 py-1 rounded-full">
+                Sportif
+              </span>
+              <h3 class="text-xl font-semibold mt-2">
+                Mini-Terrain de Football Diass
+              </h3>
             </div>
           </div>
           
@@ -384,8 +446,20 @@
           <img src="photos/ville_diourbel.png" alt="Mairie de Diourbel" class="h-full object-contain" />
         </div>
         <div class="p-4">
-          <h3 class="text-xl font-semibold mt-2">Mairie de la ville de Diourbel</h3>
+          <h3 class="text-xl font-semibold mt-2">La ligue de Diourbel</h3>
           <p class="text-gray-600 mt-2">Partenaire majeur dans la réalisation d’infrastructures de grande envergure.</p>
+        </div>
+      </div>
+
+
+      <!-- Dalifort -->
+      <div class="project-card bg-white rounded overflow-hidden shadow-sm">
+        <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <img src="photos/dlaifort.jpg" alt="Commune de Dalifort-Foirail" class="h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mt-2">Commune de Dalifort-Foirail</h3>
+          <p class="text-gray-600 mt-2">Partenaire majeur dans la réalisation d’infrastructures.</p>
         </div>
       </div>
 
@@ -447,10 +521,10 @@
       <!-- Tivaouane Diaksao -->
       <div class="project-card bg-white rounded overflow-hidden shadow-sm">
         <div class="h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
-          <img src="photos/tivaon diaksao.png" alt="Commune de Tivaouane Diaksao" class="h-full object-contain" />
+          <img src="photos/tivaon diaksao.png" alt="Commune de Tivaouane" class="h-full object-contain" />
         </div>
         <div class="p-4">
-          <h3 class="text-xl font-semibold mt-2">Commune de Tivaouane Diaksao</h3>
+          <h3 class="text-xl font-semibold mt-2">Commune de Tivaouane</h3>
           <p class="text-gray-600 mt-2">Collaboration pour des installations sportives de proximité.</p>
         </div>
       </div>
@@ -679,7 +753,7 @@
           <!-- Logo + présentation -->
           <div>
             <a href="#">
-              <img src="photos/logo.png" alt="Logo DABS" class="h-12 w-auto mb-4" />
+              <img src="photos/imagelogo.png" alt="Logo DABS" class="h-12 w-auto mb-4" />
             </a>
             <p class="text-gray-400">
               Votre partenaire de confiance pour la conception, la construction
